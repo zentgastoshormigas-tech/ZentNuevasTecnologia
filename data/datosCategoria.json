@@ -1,0 +1,112 @@
+[
+    {
+        "id":436.0,
+        "nombreCategoria":"Educacion",
+        "fechaDeCreacion":null,
+        "responsable":"cesar",
+        "justificacion":"no tenia efectivo",
+        "descripcion":"descripcion al azar 1",
+        "estado":false,
+        "fechaModificacion":"2026\/07\/14",
+        "codigo":"Z748"
+    },
+    {
+        "id":146.0,
+        "nombreCategoria":"Tecnologia",
+        "fechaDeCreacion":"2025\/10\/06",
+        "responsable":" ELPIETRO",
+        "justificacion":"no tenian cambio en efectivo",
+        "descripcion":"descripcion al azar 2",
+        "estado":true,
+        "fechaModificacion":"2026\/02\/11",
+        "codigo":"V788"
+    },
+    {
+        "id":149.0,
+        "nombreCategoria":"Tecnologia",
+        "fechaDeCreacion":"2025\/09\/05",
+        "responsable":"albaro",
+        "justificacion":"solo queria",
+        "descripcion":"descripcion al azar",
+        "estado":true,
+        "fechaModificacion":"2026\/09\/21",
+        "codigo":"V788"
+    },
+    {
+        "id":412.0,
+        "nombreCategoria":"Alimentos",
+        "fechaDeCreacion":"2025\/11\/11",
+        "responsable":"julio",
+        "justificacion":"solo queria",
+        "descripcion":"descripcion al azar 1",
+        "estado":null,
+        "fechaModificacion":"2026\/04\/13",
+        "codigo":"V788"
+    },
+    {
+        "id":410.0,
+        "nombreCategoria":"Hogar",
+        "fechaDeCreacion":"2025\/05\/16",
+        "responsable":" JULIO",
+        "justificacion":"solo queria",
+        "descripcion":"descripcion al azar 3",
+        "estado":true,
+        "fechaModificacion":"2026\/05\/04",
+        "codigo":"F899"
+    },
+    {
+        "id":63.0,
+        "nombreCategoria":"Hogar",
+        "fechaDeCreacion":"2025\/07\/25",
+        "responsable":" ELPIETRO",
+        "justificacion":"era necesario",
+        "descripcion":"descripcion al azar 1",
+        "estado":true,
+        "fechaModificacion":"2026\/10\/04",
+        "codigo":"V788"
+    },
+    {
+        "id":152.0,
+        "nombreCategoria":"Hogar",
+        "fechaDeCreacion":"2025\/06\/14",
+        "responsable":"julio",
+        "justificacion":"solo queria",
+        "descripcion":"descripcion al azar 1",
+        "estado":false,
+        "fechaModificacion":"2026\/03\/26",
+        "codigo":" t001"
+    },
+    {
+        "id":283.0,
+        "nombreCategoria":"Entretenimiento",
+        "fechaDeCreacion":"2025\/05\/31",
+        "responsable":"julio",
+        "justificacion":"no tenia efectivo",
+        "descripcion":"descripcion al azar 1",
+        "estado":true,
+        "fechaModificacion":"2026\/04\/12",
+        "codigo":"G2025"
+    },
+    {
+        "id":null,
+        "nombreCategoria":"Tecnologia",
+        "fechaDeCreacion":"2025\/08\/02",
+        "responsable":"cesar",
+        "justificacion":"era necesario",
+        "descripcion":"descripcion al azar",
+        "estado":true,
+        "fechaModificacion":"2026\/07\/01",
+        "codigo":"F899"
+    },
+    {
+        "id":593.0,
+        "nombreCategoria":" ALIMENTOS",
+        "fechaDeCreacion":"2025\/01\/09",
+        "responsable":"cesar",
+        "justificacion":"solo queria",
+        "descripcion":"descripcion al azar 2",
+        "estado":false,
+        "fechaModificacion":"2026\/12\/15",
+        "codigo":"G2025"
+    }
+]
