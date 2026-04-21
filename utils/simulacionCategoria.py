@@ -14,9 +14,8 @@ from datetime import datetime, timedelta
 
 def simular_tabla_categoria(numeroUsuarios):
     #Defino atributo base
-    usuario = input()
     nombre = ["Alimentos", "Transporte", "Entretenimiento", "Educacion", "Tecnologia", "Hogar"]
-    responsable = [usuario]
+    responsable = ["elpietro", "albaro", "julio", "cesar"]
     justificacion = ["era necesario", "no tenia efectivo", "no tenian cambio en efectivo", "solo queria" ]
     descripcion = ["descripcion al azar", "descripcion al azar 1", "descripcion al azar 2", "descripcion al azar 3"]
     codigo = ["Z748", "F899", "T001", "G2025", "V788"]
@@ -47,15 +46,30 @@ def simular_tabla_categoria(numeroUsuarios):
 
             servicio = {
                 "id" : random.randint(1,1000),
-                "NombreCategoria" : random.choice(nombre),
+                "nombreCategoria" : random.choice(nombre),
                 "fechaDeCreacion" : fechaBaseAnio.strftime("%Y/%m/%d"),
-                "responsable" : responsable,
+                "responsable" : random.choice(responsable),
                 "justificacion" : random.choice(justificacion),
                 "descripcion" : random.choice(descripcion),
                 "estado" : random.choice(estado),
                 "fechaModificacion" : fechaBaseModificacion.strftime("%Y/%m/%d"),
-                "codigo" : random.choice(estado)
+                "codigo" : random.choice(codigo)
             }
+
+            #inyeccion de error de probabilidad
+            probabilidadError = random.random()
+            if(probabilidadError<0.2):
+                servicio["id"]= None
+            elif(probabilidadError<0.3):
+                servicio["nombreCategoria"]=" "+servicio["nombreCategoria"].upper()
+            elif(probabilidadError<0.6):
+                servicio["fechaDeCreacion"]= None
+            elif(probabilidadError<0.7):
+                servicio["responsable"]=" "+ servicio["responsable"].upper()
+            elif(probabilidadError<0.8):
+                servicio["estado"]=None
+            elif(probabilidadError<0.9):
+                servicio["codigo"]=" "+servicio["codigo"].lower()
 
             servicios.append(servicio)
     return servicios
