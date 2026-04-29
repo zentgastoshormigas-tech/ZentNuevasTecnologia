@@ -48,5 +48,7 @@ def simular_tabla_comercio(numeroServicios):
 
         }
 
+        #
+
         servicios.append(servicio)
     return servicios
