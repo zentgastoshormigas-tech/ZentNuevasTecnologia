@@ -61,5 +61,22 @@ def simular_tabla_gasto(numeroUsuarios):
                 "comercio" : random.choice(comercio)
             }
 
+             #inyeccion de error de probabilidad
+            probabilidadError = random.random()
+            if(probabilidadError<0.2):
+                  servicio["id"]= None
+            elif(probabilidadError<0.3):
+                  servicio["fechaDeRegistro"]= None
+            elif(probabilidadError<0.6):
+                  servicio["valor"]= random.randint(20000,1000000)
+            elif(probabilidadError<0.7):
+                  servicio["categoria"]=" "+ servicio["categoria"]
+            elif(probabilidadError<0.8):
+                  servicio["estado"]=None
+            elif(probabilidadError<0.9):
+                  servicio["comercio"]=random.choice(["FALABELLA", "DOLARCITY", "RANCHEROS"])
+            
             servicios.append(servicio)
-    return servicios
+            return servicios
+    
+            

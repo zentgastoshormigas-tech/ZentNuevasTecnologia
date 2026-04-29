@@ -54,5 +54,26 @@ def simular_tabla_usuario(numeroUsuarios):
                 "estado" : random.choice(estado)
             }
 
+            #Inyectando errores controlados
+            probabilidadError=random.random()
+            if(probabilidadError<0.1):
+                servicio["id"]=None
+            elif(probabilidadError<0.2):
+                servicio["nombre"]=" "+servicio["nombre"].upper()
+            elif(probabilidadError<0.3):
+                servicio["tipoDeDoCumento"]=" "+servicio["tipoDeDocumento"].upper()
+            elif(probabilidadError<0.4):
+                servicio["documento"]= random.choice([0, None, -1, 86])
+            elif(probabilidadError<0.5):
+                servicio["estado"]= None
+            elif(probabilidadError<0.6):
+                 servicio["fechaDeNacimiento"]= None
+            elif(probabilidadError<0.7):
+                 servicio["correo"]=" " + servicio["correo"].upper()
+            elif(probabilidadError<0.8):
+                 servicio["fechaDeRegistro"]= None
+            elif(probabilidadError<0.9):
+                 servicio["edad"]=random.randint(1, 17 or 86, 100)
+
             servicios.append(servicio)
-    return servicios
+            return servicios
