@@ -166,6 +166,86 @@ def limpiar_datos_comercio(data_frame_sucio):
     data_frame_limpio = data_frame_sucio.copy()
 
     #modelo comercio va aqui
+    
+    #procesando los textos del DATAFRAME sucio
+    #limpiando los textos para eliminar espacios y mayusculas
+    #copiamos el dataframe_sucio por cualquier tipo de error no arruinar la principal
+    data_frame_limpio["nit"] = data_frame_limpio["nit"].astype("string").str.strip().str.lower()
+    data_frame_limpio["nombre"] = data_frame_limpio["nombre"].astype("string").str.strip().str.lower()
+    data_frame_limpio["nombreDelComercio"] = data_frame_limpio["nombreDelComercio"].astype("string").str.strip().str.lower()
+    data_frame_limpio["actividad"] = data_frame_limpio["actividad"].astype("string").str.strip().str.lower()
+    data_frame_limpio["contacto"] = data_frame_limpio["contacto"].astype("string").str.strip().str.lower()
+    data_frame_limpio["direccion"] = data_frame_limpio["direccion"].astype("string").str.strip().str.lower()
+    data_frame_limpio["ciudad"] = data_frame_limpio["ciudad"].astype("string").str.strip().str.lower()
+    data_frame_limpio["tipoDeRegimen"] = data_frame_limpio["tipoDeRegimen"].astype("string").str.strip().str.lower()
+
+
+    #2. limpiando los texto para controlar valores inesperados
+    valores_esperados_nit= str(random.randint(1000000, 1000000) for _ in range(10))
+    data_frame_limpio["nit"] = data_frame_limpio["nit"].where(
+        data_frame_limpio["nit"].isin(valores_esperados_nit),
+        pd.NA
+    )
+
+    valores_esperados_nombre= ["dora", "la exploradora", "drax", "betto"]
+    data_frame_limpio["nombre"]=data_frame_limpio["nombre"].where(
+        data_frame_limpio["nombre"].isin(valores_esperados_nombre),
+        pd.NA
+    )
+
+    valores_esperados_nombreDelComercio= ["dora", "la exploradora", "drax", "betto"]
+    data_frame_limpio["nombreDelComercio"]=data_frame_limpio["nombreDelComercio"].where(
+        data_frame_limpio["nombreDelComercio"].isin(valores_esperados_nombreDelComercio),
+        pd.NA
+    )
+    
+    valores_esperados_actividad= ["Agricultura", "Ganaderia", "Pesca", "Mineria"]
+    data_frame_limpio["actividad"]=data_frame_limpio["actividad"].where(
+        data_frame_limpio["actividad"].isin(valores_esperados_actividad),
+        pd.NA
+    )
+
+    valores_esperados_contacto= str(random.randint(3000000000, 3300000000) for _ in range(10))
+    data_frame_limpio["contacto"]=data_frame_limpio["contacto"].where(
+        data_frame_limpio["contacto"].isin(valores_esperados_contacto),
+        pd.NA
+    )
+
+    valores_esperados_direccion= ["pescherman Cr 39 Cl wallace ", "cr 31 b 56a - 22", "PALMS Avenue"]
+    data_frame_limpio["direccion"]=data_frame_limpio["direccion"].where(
+        data_frame_limpio["direccion"].isin(valores_esperados_direccion),
+        pd.NA
+    )
+
+    valores_esperados_ciudad= ["Maracaibo", "Barquisimento", "Medellin", "San Andres"]
+    data_frame_limpio["ciudad"]=data_frame_limpio["ciudad"].where(
+        data_frame_limpio["ciudad"].isin(valores_esperados_ciudad),
+        pd.NA
+    )
+
+    valores_esperados_tipoDeRegimen=["Regimen simplificado", "Regimen especial", "Regimen simple de tributacion"]
+    data_frame_limpio["tipoDeRegimen"]=data_frame_limpio["tipoDeRegimen"].where(
+        data_frame_limpio["tipoDeRegimen"].isin(valores_esperados_tipoDeRegimen),
+        pd.NA
+    )
+
+    #1.1 limpieza de datos numericos verficamos que los datos sean numericos
+    data_frame_limpio["id"] = pd.to_numeric(data_frame_limpio["id"])
+
+    #1.2 verificamoslos valores esperados
+    data_frame_limpio = data_frame_limpio[data_frame_limpio["id"]>0]
+
+    #limpieza por fecha verificamos si el campo es una fecha
+    fecha_default = pd.to_datetime("2010-01-01")
+    data_frame_limpio["fechaDeRegistro"] = data_frame_limpio["fechaDeRegistro"].fillna(fecha_default)
+
+
+    #novedades de datos vacios
+    columnas_obligatorias = ["id","nit", "nombre", "nombreDelComercio","actividad", "contacto","direccion","ciudad", "tipoDeRegimen", "fechaDeRegistro"]
+    data_frame_limpio= data_frame_limpio.dropna(subset=columnas_obligatorias)
+
+
+    return data_frame_limpio
 
 
 
