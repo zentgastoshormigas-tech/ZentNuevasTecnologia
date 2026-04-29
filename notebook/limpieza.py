@@ -92,6 +92,24 @@ def limpiar_datos_medio_de_pago(data_frame_sucio):
     data_frame_limpio=data_frame_sucio.copy()
 
     #modelo medio de pago va aqui
+    data_frame_limpio["nombre"] = data_frame_limpio["nombre"].astype("string").str.strip().str.lower()
+    data_frame_limpio["franquicia"] = data_frame_limpio["franquicia"].astype("string").str.strip().str.lower()
+
+    valores_esperados_nombre=["descripcion al azar", "descripcion al azar 1", "descripcion al azar 2", "descripcion al azar 3"]
+    data_frame_limpio["nombre"]=data_frame_limpio["nombre"].where(
+        data_frame_limpio["nombre"].isin(valores_esperados_nombre),
+        pd.NA
+    ) 
+
+    valores_esperados_franquicia=["franquicia al azar", "franquicia al azar 1", "franquicia al azar 2", "franquicia al azar 3"]
+    data_frame_limpio["franquicia"]=data_frame_limpio["franquicia"].where(
+        data_frame_limpio["franquicia"].isin(valores_esperados_franquicia),
+        pd.NA
+    ) 
+
+    data_frame_limpio["id"]=pd.to_numeric(data_frame_limpio["id"])
+    data_frame_limpio = data_frame_limpio[data_frame_limpio["id"]>0]
+
 
 
 

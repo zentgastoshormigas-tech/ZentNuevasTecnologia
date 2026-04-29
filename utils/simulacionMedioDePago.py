@@ -16,7 +16,7 @@ def simular_tabla_usuario(numeroUsuarios):
 
             servicio = {
                 "id" : random.randint(1,1000),
-                "Nombre" : random.choice(nombres),
+                "nombre" : random.choice(nombres),
                 "franquicia" : random.choice(franquicia),
                 "estado" : random.choice(estado)
             }
